@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wuliao {
+            background: red;
+        }
+        .haha {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="user">
+        {{ aaa.sss }}
+        <div name="1231" v-class="aaa.sss">123123</div>
+        <button v-on:click="changeC">切换class</button>
+        {{ name }}
+        <input type="text" v-model="name">
+        <div>
+            <button v-on:click="clickW">点击我弹窗</button>
+        </div>
+    </div>
+    <script src="./built/output/mvvm.js"></script>
+    <script>
+        let LeeeeeeM = new MVVM({
+            data: {
+                name: 'sss',
+                age: 123,
+                aaa: {
+                    sss: 'wuliao'
+                }
+            },
+            el: '#user',
+            methods: {
+                clickW() {
+                    alert(this.name);
+                },
+                changeC() {
+                    this.aaa.sss = this.aaa.sss === 'haha' ? 'wuliao' : 'haha';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
